@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="main.js" charset="utf-8"></script>
+
+  <title>Contact List</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Contacts</h1>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>Add Contact</h2>
+    <div class="row">
+      <form id="frmInput">
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>First Name: </label>
+            <input type="text" id="iptFirstName" required/>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>Last Name: </label>
+            <input type="text" id="iptLastName" required/>
+          </div>
+        </div>
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>Phone: </label>
+            <input type="text" id="iptPhone"/>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>Email: </label>
+            <input type="text" id="iptEmail"/>
+          </div>
+        </div>
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+          <label>Street: </label>
+          <input type="text" id="iptStreet"/>
+        </div>
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>City: </label>
+            <input type="text" id="iptCity"/>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>State: </label>
+            <input type="text" id="iptState"/>
+          </div>
+        </div>
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>Country: </label>
+            <input type="text" id="iptCountry">
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <label>Zip: </label>
+            <input type="text" id="iptZip"/>
+          </div>
+        </div>
+        <button class="btn btn-default" id="btnAddContact">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <h2>Contact List</h2>
+    </div>
+    <div class="row">
+      <ul id="list"></ul>
+    </div>
+    </div>
+
+    <li id="template">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>First Name: <span class="tempFirstName"></span></p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>Last Name: <span class="tempLastName"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>Phone: <span class="tempPhone"></span></p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>Email: <span class="tempEmail"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <p>Street: <span class="tempStreet"></span></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>City: <span class="tempCity"></span></p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>State: <span class="tempState"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>Country: <span class="tempCountry"></span></p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p>Zip: <span class="tempZip"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-xs btn-primary edit">Edit</button>
+    </li>
+
+  <div id="contactEditModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <form id="editContactForm">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Contact</h4>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" id="editFirstName" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" id="editLastName" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Phone</label>
+                  <input type="text" class="form-control" id="editPhone" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Email</label>
+                  <input type="text" class="form-control" id="editEmail" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <label>Street</label>
+                  <input type="text" class="form-control" id="editStreet" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>City</label>
+                  <input type="text" class="form-control" id="editCity" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>State</label>
+                  <input type="text" class="form-control" id="editState" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Country</label>
+                  <input type="text" class="form-control" id="editCountry" required>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Zip</label>
+                  <input type="text" class="form-control" id="editZip" required>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnUpdate">Save changes</button>
+      </div>
+    </div>
+  </div>
+  </form>
+  </div>
+
+  <script>
+    $("[data-toggle='modal']").modal();
+  </script>
+</body>
+</html>
