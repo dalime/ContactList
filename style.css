@@ -1,3 +1,24 @@
 #template {
   display: none;
 }
+
+ul {
+  list-style-type: none;
+}
+
+#editContactForm input {
+  width: 250px;
+}
+
+#editContactForm {
+  text-align: left;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.tempPicture {
+  width: 100px;
+  height: 100px;
+}

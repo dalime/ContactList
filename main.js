@@ -39,6 +39,7 @@ function createLi(contactInfo) {
   let newState = (contactInfo.map(function(a) {return a.state}))[6];
   let newCountry = (contactInfo.map(function(a) {return a.country}))[7];
   let newZip = (contactInfo.map(function(a) {return a.zip}))[8];
+  let newPicture = (contactInfo.map(function(a) {return a.picture}))[9];
 
   let $li = $('#template').clone();
   $li.removeAttr('id');
@@ -51,6 +52,7 @@ function createLi(contactInfo) {
   $li.find('.tempState').text(newState);
   $li.find('.tempCountry').text(newCountry);
   $li.find('.tempZip').text(newZip);
+  $li.find('#tempPicture').attr('src', newPicture);
   return $li;
 }
 
@@ -66,11 +68,22 @@ function saveUpdate() {
   let newState = $('#editState').val();
   let newCountry = $('#editCountry').val();
   let newZip = $('#editZip').val();
+  let newPicture = $('#editPicture').val();
 }
 
 function openEditModal() {
   let $index = $(this).parent().index();
   $('#contactEditModal').data('index', $index);
+  $('#contactEditModal').find('#editFirstName').val(contactInfoFromStorage("firstNames")[$index]);
+  $('#contactEditModal').find('#editLastName').val(contactInfoFromStorage("lastNames")[$index]);
+  $('#contactEditModal').find('#editPhone').val(contactInfoFromStorage("phones")[$index]);
+  $('#contactEditModal').find('#editEmail').val(contactInfoFromStorage("emails")[$index]);
+  $('#contactEditModal').find('#editStreet').val(contactInfoFromStorage("streets")[$index]);
+  $('#contactEditModal').find('#editCity').val(contactInfoFromStorage("cities")[$index]);
+  $('#contactEditModal').find('#editState').val(contactInfoFromStorage("states")[$index]);
+  $('#contactEditModal').find('#editCountry').val(contactInfoFromStorage("countries")[$index]);
+  $('#contactEditModal').find('#editZip').val(contactInfoFromStorage("zips")[$index]);
+  $('#contactEditModal').find('#editPicture').val(contactInfoFromStorage("pictures")[$index]);
   $('#contactEditModal').modal();
 }
 
@@ -85,6 +98,7 @@ function updateContact() {
   let $newState = $('#editState').val();
   let $newCountry = $('#editCountry').val();
   let $newZip = $('#editZip').val();
+  let $newPicture = $('#editPicture').val();
 
   let firstNames = contactInfoFromStorage("firstNames");
   let lastNames = contactInfoFromStorage("lastNames");
@@ -95,6 +109,7 @@ function updateContact() {
   let states = contactInfoFromStorage("states");
   let countries = contactInfoFromStorage("countries");
   let zips = contactInfoFromStorage("zips");
+  let pictures = contactInfoFromStorage("pictures");
   firstNames.splice($index, 1, $newFirstName);
   lastNames.splice($index, 1, $newLastName);
   phones.splice($index, 1, $newPhone);
@@ -104,6 +119,7 @@ function updateContact() {
   states.splice($index, 1, $newState);
   countries.splice($index, 1, $newCountry);
   zips.splice($index, 1, $newZip);
+  pictures.splice($index, 1, $newPicture);
 
   contactInfoToStorage("firstNames", firstNames);
   contactInfoToStorage("lastNames", lastNames);
@@ -114,6 +130,7 @@ function updateContact() {
   contactInfoToStorage("states", states);
   contactInfoToStorage("countries", countries);
   contactInfoToStorage("zips", zips);
+  contactInfoToStorage("pictures", pictures);
 
   let contactPacks = createContactPack();
   let $li = (createLi(contactPacks[$index])).html();
@@ -140,6 +157,7 @@ function removeFromStorage(index) {
   let states = [];
   let countries = [];
   let zips = [];
+  let pictures = [];
   for (let i = 0; i < contactPacks.length; i++) {
     let newFirstName = contactPacks[i][0];//.firstName[0];
     newFirstName = newFirstName.firstName;
@@ -168,6 +186,9 @@ function removeFromStorage(index) {
     let newZip = contactPacks[i][8];
     newZip = newZip.zip;
     zips.push(newZip);
+    let newPicture = contactPacks[i][9];
+    newPicture = newPicture.picture;
+    pictures.push(newPicture);
   }
   contactInfoToStorage("firstNames", firstNames);
   contactInfoToStorage("lastNames", lastNames);
@@ -178,6 +199,7 @@ function removeFromStorage(index) {
   contactInfoToStorage("states", states);
   contactInfoToStorage("countries", countries);
   contactInfoToStorage("zips", zips);
+  contactInfoToStorage("pictures", pictures);
 }
 
 //FUNCTIONS TO READ, PARSE, MODIFY, STRINGIFY, WRITE TO LOCALSTORAGE
@@ -212,6 +234,9 @@ function packArray() {
   let zip = $('#iptZip').val();
   $('#iptZip').val('');
   arrContactInfo.push({"zip": zip});
+  let picture = $('#iptPicture').val();
+  $('#iptPicture').val('');
+  arrContactInfo.push({"picture": picture});
 
   return arrContactInfo;
 }
@@ -227,6 +252,7 @@ function addInfoToStorage(contactInfo) {
   let newState = (contactInfo.map(function(a) {return a.state;}))[6];
   let newCountry = (contactInfo.map(function(a) {return a.country;}))[7];
   let newZip = (contactInfo.map(function(a) {return a.zip;}))[8];
+  let newPicture = (contactInfo.map(function(a) {return a.picture}))[9];
 
   //Read
   let firstNames = contactInfoFromStorage("firstNames");
@@ -238,6 +264,7 @@ function addInfoToStorage(contactInfo) {
   let states = contactInfoFromStorage("states");
   let countries = contactInfoFromStorage("countries");
   let zips = contactInfoFromStorage("zips");
+  let pictures = contactInfoFromStorage("pictures");
   //parse
   //modify
   firstNames.push(newFirstName);
@@ -249,6 +276,7 @@ function addInfoToStorage(contactInfo) {
   states.push(newState);
   countries.push(newCountry);
   zips.push(newZip);
+  pictures.push(newPicture);
   //stringify
   //write
   contactInfoToStorage("firstNames", firstNames);
@@ -260,6 +288,7 @@ function addInfoToStorage(contactInfo) {
   contactInfoToStorage("states", states);
   contactInfoToStorage("countries", countries);
   contactInfoToStorage("zips", zips);
+  contactInfoToStorage("pictures", pictures);
 }
 //1.read
 //2.parse
@@ -293,6 +322,9 @@ function contactInfoFromStorage(infoType) {
     case "zips":
     var json = localStorage.zips;
     break;
+    case "pictures":
+    var json = localStorage.pictures;
+    break;
   }
   let contactInfo;
   try {
@@ -317,6 +349,7 @@ function createContactPack() {
     contactPack.push({"state": "" + (JSON.parse(localStorage.states))[i]});
     contactPack.push({"country": "" + (JSON.parse(localStorage.countries))[i]});
     contactPack.push({"zip": "" + (JSON.parse(localStorage.zips))[i]});
+    contactPack.push({"picture": "" + (JSON.parse(localStorage.pictures))[i]});
     contactPacks.push(contactPack);
   }
     //To create contact info packs for all elements searched
@@ -353,6 +386,9 @@ function contactInfoToStorage(infoType, array) {
     break;
     case "zips":
     localStorage.zips = JSON.stringify(array);
+    break;
+    case "pictures":
+    localStorage.pictures = JSON.stringify(array);
     break;
   }
 }

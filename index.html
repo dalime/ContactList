@@ -23,51 +23,77 @@
     <h2>Add Contact</h2>
     <div class="row">
       <form id="frmInput">
-        <div class="row col-sm-12 col-md-12 col-lg-12">
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>First Name: </label>
-            <input type="text" id="iptFirstName" required/>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>Last Name: </label>
-            <input type="text" id="iptLastName" required/>
-          </div>
-        </div>
-        <div class="row col-sm-12 col-md-12 col-lg-12">
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>Phone: </label>
-            <input type="text" id="iptPhone"/>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>Email: </label>
-            <input type="text" id="iptEmail"/>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>First Name: </label>
+              <input type="text" id="iptFirstName" required/>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>Last Name: </label>
+              <input type="text" id="iptLastName" required/>
+            </div>
           </div>
         </div>
-        <div class="row col-sm-12 col-md-12 col-lg-12">
-          <label>Street: </label>
-          <input type="text" id="iptStreet"/>
-        </div>
-        <div class="row col-sm-12 col-md-12 col-lg-12">
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>City: </label>
-            <input type="text" id="iptCity"/>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>State: </label>
-            <input type="text" id="iptState"/>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>Phone: </label>
+              <input type="text" id="iptPhone"/>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>Email: </label>
+              <input type="text" id="iptEmail"/>
+            </div>
           </div>
         </div>
-        <div class="row col-sm-12 col-md-12 col-lg-12">
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>Country: </label>
-            <input type="text" id="iptCountry">
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-6">
-            <label>Zip: </label>
-            <input type="text" id="iptZip"/>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>Street: </label>
+              <input type="text" id="iptStreet"/>
+            </div>
           </div>
         </div>
-        <button class="btn btn-default" id="btnAddContact">Submit</button>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>City: </label>
+              <input type="text" id="iptCity"/>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>State: </label>
+              <input type="text" id="iptState"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>Country: </label>
+              <input type="text" id="iptCountry">
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <label>Zip: </label>
+              <input type="text" id="iptZip"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label>Picture: </label>
+              <input type="text" id="iptPicture">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: left">
+              <button class="btn btn-primary" id="btnAddContact">Submit</button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -82,54 +108,70 @@
     </div>
 
     <li id="template">
+      <hr>
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>First Name: <span class="tempFirstName"></span></p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>Last Name: <span class="tempLastName"></span></p>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <img src="" class="thumbnail" width="100" height="100" id="tempPicture"/>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>Phone: <span class="tempPhone"></span></p>
+              <p><span style="text-decoration: underline">First Name:</span> <span class="tempFirstName"></span></p>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>Email: <span class="tempEmail"></span></p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <p>Street: <span class="tempStreet"></span></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>City: <span class="tempCity"></span></p>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>State: <span class="tempState"></span></p>
+              <p><span style="text-decoration: underline">Last Name:</span> <span class="tempLastName"></span></p>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>Country: <span class="tempCountry"></span></p>
+              <p><span style="text-decoration: underline">Phone:</span> <span class="tempPhone"></span></p>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
-              <p>Zip: <span class="tempZip"></span></p>
+              <p><span style="text-decoration: underline">Email:</span> <span class="tempEmail"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p><span style="text-decoration: underline">Street:</span> <span class="tempStreet"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p><span style="text-decoration: underline">City:</span> <span class="tempCity"></span></p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p><span style="text-decoration: underline">State:</span> <span class="tempState"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p><span style="text-decoration: underline">Country:</span> <span class="tempCountry"></span></p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <p><span style="text-decoration: underline">Zip:</span> <span class="tempZip"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6" style="text-align: center">
+              <button class="btn btn-xs btn-primary edit">Edit</button>
             </div>
           </div>
         </div>
       </div>
-      <button class="btn btn-xs btn-primary edit">Edit</button>
     </li>
 
   <div id="contactEditModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -145,48 +187,54 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>First Name</label>
+                  <label>First Name: </label>
                   <input type="text" class="form-control" id="editFirstName" required>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Last Name</label>
+                  <label>Last Name: </label>
                   <input type="text" class="form-control" id="editLastName" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Phone</label>
+                  <label>Phone: </label>
                   <input type="text" class="form-control" id="editPhone" required>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Email</label>
+                  <label>Email: </label>
                   <input type="text" class="form-control" id="editEmail" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                  <label>Street</label>
+                  <label>Street: </label>
                   <input type="text" class="form-control" id="editStreet" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>City</label>
+                  <label>City: </label>
                   <input type="text" class="form-control" id="editCity" required>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>State</label>
+                  <label>State: </label>
                   <input type="text" class="form-control" id="editState" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Country</label>
+                  <label>Country: </label>
                   <input type="text" class="form-control" id="editCountry" required>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Zip</label>
+                  <label>Zip: </label>
                   <input type="text" class="form-control" id="editZip" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Profile Picture: </label>
+                  <input type="text" class="form-control" id="editPicture" required>
                 </div>
               </div>
             </div>
